@@ -1,11 +1,16 @@
-import Button from "@/components/Button";
-import Subtitle from "@/components/Subtitle";
+import MainScreen from "@/components/MainScreen";
+
+const stages = [
+  { id: 1, name: 'start' },
+  { id: 2, name: 'game' },
+  { id: 3, name: 'finish' },
+  { id: 4, name: 'gameover' },
+]
 
 export default function Home() {
   return (
-    <main className="gap-4 h-full p-12 bg-blue-300 flex flex-col items-center justify-center">
-      <Subtitle />
-      <Button>Iniciar o jogo</Button>
+    <main className="gap-4 p-12 flex flex-col items-center justify-center text-center">
+      <MainScreen />      
     </main>
   );
 }
