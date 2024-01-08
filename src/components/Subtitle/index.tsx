@@ -1,5 +1,6 @@
-export default function Subtitle() {
-  return (
-    <h2>Clique no botão abaixo para começar a jogar</h2>
-  )
+interface SubtitleProps {
+  text: string;
+}
+export default function Subtitle({ text }: SubtitleProps) {
+  return <h2>{text}</h2>;
 }
