@@ -18,6 +18,9 @@ export default function MainScreen() {
   const [pickedWord, setPickedWord] = useState<string>("");
   const [pickedCategory, setPickedCategory] = useState<string>("");
   const [letters, setLetters] = useState<string[]>([]);
+  const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+  const [guesses, setGuesses] = useState<number>(5);
+  const [wrongLetters, setWrongLetters] = useState<string[]>([]);
 
   const pickWordAndCategory = useCallback(() => {
     const categories: (keyof WordsListProps)[] = Object.keys(
@@ -49,8 +52,8 @@ export default function MainScreen() {
 
     setGameStage(stages[1].name);
   }, [pickWordAndCategory]);
-  const verifyLetter = () => {
-    setGameStage(stages[2].name);
+  const verifyLetter = (letter: string) => {
+    console.log(letter);
   };
   const retry = () => {
     setGameStage(stages[0].name);
@@ -61,7 +64,17 @@ export default function MainScreen() {
   return (
     <main className="gap-4 p-6 flex flex-col items-center justify-center text-center">
       {gameStage === "start" && <StartScreen startGame={startGame} />}
-      {gameStage === "game" && <GameScreen verifyLetter={verifyLetter} />}
+      {gameStage === "game" && (
+        <GameScreen
+          verifyLetter={verifyLetter}
+          pickedWord={pickedWord}
+          pickedCategory={pickedCategory}
+          letters={letters}
+          guessedLetters={guessedLetters}
+          wrongLetters={wrongLetters}
+          guesses={guesses}
+        />
+      )}
       {gameStage === "finish" && <FinishScreen finishGame={finishGame} />}
       {gameStage === "gameover" && <GameoverScreen retry={retry} />}
     </main>
