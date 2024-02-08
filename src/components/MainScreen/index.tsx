@@ -1,6 +1,6 @@
 "use client";
 import StartScreen from "../StartScreen";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import GameScreen from "../GameScreen";
 import FinishScreen from "../FinishScreen";
 import GameoverScreen from "../GameoverScreen";
@@ -21,6 +21,7 @@ export default function MainScreen() {
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
   const [guesses, setGuesses] = useState<number>(5);
   const [wrongLetters, setWrongLetters] = useState<string[]>([]);
+  const [score, setScore] = useState(0);
 
   const pickWordAndCategory = useCallback(() => {
     const categories: (keyof WordsListProps)[] = Object.keys(
@@ -35,8 +36,6 @@ export default function MainScreen() {
   }, []);
 
   const startGame = useCallback(() => {
-    //clearLettersStates();
-
     const { category, word } = pickWordAndCategory();
 
     console.log(category, word);
@@ -53,14 +52,61 @@ export default function MainScreen() {
     setGameStage(stages[1].name);
   }, [pickWordAndCategory]);
   const verifyLetter = (letter: string) => {
+    const normalizedLetter = letter.toLowerCase();
+    if (
+      guessedLetters.includes(normalizedLetter) ||
+      wrongLetters.includes(normalizedLetter)
+    ) {
+      return;
+    }
+    if (letters.includes(normalizedLetter)) {
+      setGuessedLetters((actualGuessedLetters) => [
+        ...actualGuessedLetters,
+        letter,
+      ]);
+    } else {
+      setWrongLetters((actualGuessedLetters) => [
+        ...actualGuessedLetters,
+        normalizedLetter,
+      ]);
+      setGuesses((actualGuesses) => actualGuesses - 1);
+    }
     console.log(letter);
+    console.log(wrongLetters);
   };
   const retry = () => {
+    setScore(0);
+    setGuesses(3);
     setGameStage(stages[0].name);
   };
+  const clearLettersStates = () => {
+    setGuessedLetters([]);
+    setWrongLetters([]);
+  };
+
+  useEffect(() => {
+    if (guesses === 0) {
+      clearLettersStates();
+
+      setGameStage(stages[2].name);
+    }
+  }, [guesses]);
   const finishGame = () => {
     setGameStage(stages[3].name);
   };
+
+  useEffect(() => {
+    const uniqueLetters = [...new Set(letters)];
+
+    console.log(uniqueLetters);
+    console.log(guessedLetters);
+
+    if (guessedLetters.length === uniqueLetters.length) {
+      setScore((actualScore) => (actualScore += 100));
+      startGame();
+    }
+  }, [guessedLetters, letters, startGame]);
+
   return (
     <main className="gap-4 p-6 flex flex-col items-center justify-center text-center">
       {gameStage === "start" && <StartScreen startGame={startGame} />}

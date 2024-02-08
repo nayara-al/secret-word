@@ -1,9 +1,9 @@
 "use client";
-import { useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import Button from "../Button";
 
 interface GameScreenProps {
-  verifyLetter: () => void;
+  verifyLetter: (e: string) => void;
   pickedWord: string;
   pickedCategory: string;
   letters: string[];
@@ -24,14 +24,12 @@ export default function GameScreen({
   const [letter, setLetter] = useState("");
   const letterInputRef = useRef(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     verifyLetter(letter);
 
     setLetter("");
-
-    letterInputRef.current.focus();
   };
 
   return (
@@ -50,21 +48,21 @@ export default function GameScreen({
           guessedLetters.includes(letter) ? (
             <span
               key={i}
-              className="h-[60px] w-[60px] text-[64px] border solid border-1 border-gray-900 uppercase bg-white text-black font-bold"
+              className="flex items-center justify-center h-[60px] w-[60px] text-5xl border solid border-1 border-gray-900 uppercase bg-white text-black font-bold"
             >
               {letter}
             </span>
           ) : (
             <span
               key={i}
-              className="h-[60px] w-[60px] text-[64px] border solid border-1 border-gray-900 uppercase bg-white text-black font-bold"
+              className="h-[60px] w-[60px] text-5xl border solid border-1 border-gray-900 uppercase bg-white text-black font-bold"
             ></span>
           )
         )}
       </div>
       <div>
         <p></p>
-        <form className="flex items-center justify-center gap-4">
+        <form className="flex items-center justify-center gap-4" onSubmit={handleSubmit}>
           <input
             type="text"
             className="text-black uppercase h-[50px] w-[50px] text-[20px] text-center mr-2"
