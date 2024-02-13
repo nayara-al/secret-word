@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import Button from "../Button";
 
 interface GameScreenProps {
@@ -24,6 +24,12 @@ export default function GameScreen({
 }: GameScreenProps) {
   const [letter, setLetter] = useState("");
   const letterInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (letterInputRef.current) {
+      letterInputRef.current.focus();
+    }
+  }, [letter]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
