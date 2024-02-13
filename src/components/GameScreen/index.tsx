@@ -4,12 +4,12 @@ import Button from "../Button";
 
 interface GameScreenProps {
   verifyLetter: (e: string) => void;
-  pickedWord: string;
   pickedCategory: string;
   letters: string[];
   guessedLetters: string[];
   wrongLetters: string[];
   guesses: number;
+  score: number;
 }
 
 export default function GameScreen({
@@ -18,8 +18,8 @@ export default function GameScreen({
   guesses,
   letters,
   pickedCategory,
-  pickedWord,
   wrongLetters,
+  score,
 }: GameScreenProps) {
   const [letter, setLetter] = useState("");
   const letterInputRef = useRef(null);
@@ -35,7 +35,7 @@ export default function GameScreen({
   return (
     <div className="flex flex-col gap-10">
       <p>
-        <span className="font-semibold">Pontuação:</span> score
+        <span className="font-semibold">Pontuação:</span> {score}
       </p>
       <h1 className="text-[32px]">Advinhe a palavra:</h1>
       <h3 className="">
@@ -43,7 +43,7 @@ export default function GameScreen({
         <span className="text-yellow-500 font-semibold">{pickedCategory}</span>
       </h3>
       <p>Você ainda tem {guesses} tentativas(s).</p>
-      <div className="m-8 p-8 border-solid border-[12px] border-yellow-500 flex">
+      <div className="m-8 p-8 border-solid border-[12px] items-center justify-center border-yellow-500 flex max-md:flex-wrap">
         {letters.map((letter, i) =>
           guessedLetters.includes(letter) ? (
             <span

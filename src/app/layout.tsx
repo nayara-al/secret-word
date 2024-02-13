@@ -16,7 +16,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        {children}
+        <main className="gap-4 p-6 flex flex-col items-center justify-center text-center">
+          {children}
+        </main>
       </body>
     </html>
   );

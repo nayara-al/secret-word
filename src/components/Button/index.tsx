@@ -12,20 +12,23 @@ export default function Button({
   let paddingX;
   let paddingY;
   let textSize;
+  let buttonColor;
 
   if (buttonType === "secondary") {
-    paddingX = "px-8";
-    paddingY = "py-4";
-    textSize = "text-[16px]";
+    paddingX = "px-8 max-md:px-3";
+    paddingY = "py-4 max-md:py-2";
+    textSize = "text-base";
+    buttonColor = "bg-rose-950"
   } else if (buttonType === "primary") {
-    paddingX = "px-12";
-    paddingY = "py-6";
-    textSize = "text-[24px]";
+    paddingX = "px-12 max-md:px-4";
+    paddingY = "py-6 max-md:py-4";
+    textSize = "text-2xl max-md:text-base";
+    buttonColor = "bg-slate-500"
   }
   return (
     <button
       {...rest}
-      className={`border border-solid rounded-full font-semibold ${paddingX} ${paddingY} ${textSize}`}
+      className={` border border-solid rounded-full font-semibold ${buttonColor} ${paddingX} ${paddingY} ${textSize}`}
     >
       {children}
     </button>

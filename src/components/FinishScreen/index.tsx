@@ -1,15 +1,18 @@
 import Button from "../Button";
-import Subtitle from "../Subtitle";
 
 interface FinishScreenProps {
   finishGame: () => void;
+  score: number;
 }
 
-export default function FinishScreen({ finishGame }: FinishScreenProps) {
+export default function FinishScreen({ finishGame, score }: FinishScreenProps) {
   return (
-    <div>
-      <Subtitle text="Parabéns, você acertou a palavra!" />
-      <Button buttonType="primary" onClick={finishGame}>Ir para gameover</Button>
+    <div className="h-full flex flex-col py-8 gap-20">
+      <h2 className="text-4xl">Parabéns, você fez ao total<br/> {score} pontos! </h2>
+      <p className="w-full px-4 text-xl text-center">Esperamos que tenha se divertido,<br/> volte novamente outras vezes!</p>
+      <Button buttonType="primary" onClick={finishGame}>
+        Ir para tela inicial
+      </Button>
     </div>
   );
 }
