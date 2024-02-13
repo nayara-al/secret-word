@@ -117,7 +117,7 @@ export default function MainScreen() {
 
   return (
     <>
-      <main className="gap-4 p-6 flex flex-col items-center justify-center text-center">
+      <main className="gap-4 flex flex-col items-center justify-center text-center">
         {gameStage === "start" && <StartScreen startGame={startGame} />}
         {gameStage === "game" && (
           <GameScreen

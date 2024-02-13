@@ -5,8 +5,8 @@ interface StartScreenProps {
 
 export default function StartScreen({ startGame }: StartScreenProps) {
   return (
-    <div className="flex flex-col gap-10">
-      <h2 className="">Clique no botão abaixo para começar a jogar</h2>
+    <div className="h-full flex flex-col gap-20">
+      <h2 className="text-2xl">Clique no botão abaixo para começar a jogar</h2>
       <Button buttonType="primary" onClick={startGame}>
         Iniciar o jogo
       </Button>

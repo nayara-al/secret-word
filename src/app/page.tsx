@@ -9,7 +9,7 @@ const stages = [
 
 export default function Home() {
   return (
-    <main className="gap-4 p-12 flex flex-col items-center justify-center text-center">
+    <main className="gap-4 p-12 max-md:px-4 flex flex-col items-center justify-center text-center">
       <MainScreen />      
     </main>
   );

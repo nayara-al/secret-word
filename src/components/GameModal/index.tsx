@@ -47,7 +47,7 @@ export default function GameContinue({
         </div>
         <div className="flex flex-col gap-6">
           <div className="bg-white rounded-lg flex flex-col gap-3 p-4 text-left">{children}</div>
-          <div className="flex justify-center items-center gap-8 font-bold">
+          <div className="flex justify-center items-center gap-8 max-md:gap-2 flex-wrap font-bold">
             <button onClick={clickOk} className="bg-blue-500 py-4 px-6 rounded-lg text-white">Continuar</button>
             <button onClick={closeDialog} className="bg-teal-950 py-4 px-6 rounded-lg text-white">Finalizar</button>
           </div>
