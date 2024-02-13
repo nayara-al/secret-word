@@ -1,16 +1,16 @@
 export type WordsListProps = {
-  carro: string[];
+  /* carro: string[];
   fruta: string[];
-  corpo: string[];
+  corpo: string[]; */
   computador: string[];
-  programação: string[];
+  /* programação: string[];
   alimento: string[];
-  esporte: string[]; 
+  esporte: string[];  */
   país: string[];
 };
 
 export const wordsList: WordsListProps = {
-  carro: [
+  /* carro: [
     "Motor",
     "Porta",
     "Capô",
@@ -45,17 +45,20 @@ export const wordsList: WordsListProps = {
     "Cotovelo",
     "Barriga",
     "Joelho",
-  ],
+  ], */
   computador: [
-    "Mouse",
+    /* "Mouse",
     "Teclado",
     "Monitor",
     "Gabinete",
     "Processador",
-    "Memória",
-    "Fonte",
+    "Memória", */
+    "Placa-mãe",
+    "Disco rígido",
+    "Placa de vídeo",
+    /* "Fonte", */
   ],
-  programação: [
+  /* programação: [
     "Linguagem",
     "Framework",
     "JavaScript",
@@ -90,17 +93,17 @@ export const wordsList: WordsListProps = {
     "Surfe",
     "Atletismo",
     "Esqui",
-  ],
+  ], */
   país: [
-    "Brasil",
+    /* "Brasil", */
     "Estados Unidos",
-    "Japão",
+    /* "Japão",
     "Alemanha",
     "Austrália",
     "Índia",
     "Canadá",
     "México",
     "França",
-    "Itália",
+    "Itália", */
   ],
 };
