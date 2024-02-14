@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Secret Word - Palavra secreta
 
-First, run the development server:
+Este projeto é um jogo de adivinhação. Ao iniciar o jogo, é sorteada uma plavra, dentro de algumas categorias disponíveis. O jogador tem cinco chances de acertar a palavra sorteda e a cada palavra sorteada ele tem a opção de finalizar o jogo ou continuar jogando e somando sua pontuação.
+
+Projeto criado com base em protótipo de curso de Matheus Battisti (Hora de codar) mas com atualizações e adaptações para aceitar novas tecnologias. O projeto original foi feito com Vite e JavaScript, para este, foi escolhido a utilização do framework Next.js e Typescript.
+
+Além de tudo, foram implementados testes unitários na aplicação, para garantir uma melhor confiabilidade da mesma e um correto comportamento de cada um dos componentes.
+
+
+## 📝Documentação
+
+Para rodar esse projeto se faz necessário, antes de tudo, clocar o repositório e instalar as dependências de projeto através do comando:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Após isso, basta rodar um comando para conseguir rodar o projeto localmente:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  npm run dev
+```
+Vale ressaltar que a versão do Next.js escolhida para o projeto foi a versão 14, com a pasta app e utilizando o princípios de páginas SSR. Alguns dos componentes precisaram ser CSR para garintir a interação do usuário.
+## 🛠 Tecnologias e funcionalidades
+- Next.js
+- Typescript
+- Tailwind.css
+- Jest
+- React Testing Library
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## 🧪 Rodando os testes
 
-To learn more about Next.js, take a look at the following resources:
+Para rodar os testes, rode o seguinte comando
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npm test
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
