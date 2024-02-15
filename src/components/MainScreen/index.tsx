@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import GameScreen from "../GameScreen";
 import FinishScreen from "../FinishScreen";
 import GameoverScreen from "../GameoverScreen";
-import { WordsListProps, wordsList } from "@/data/words";
+import { WordsListProps, wordsList } from "../../data/words";
 import GameContinue from "../GameModal";
 
 const stages = [
@@ -41,12 +41,9 @@ export default function MainScreen() {
     setGameStage("game");
     const { category, word } = pickWordAndCategory();
 
-    console.log(category, word);
-
     let wordLetters = word.split("");
 
     wordLetters = wordLetters.map((l: string) => l.toLowerCase());
-    console.log("wordLetters", wordLetters);
 
     setPickedCategory(category);
     setPickedWord(word);
@@ -74,12 +71,10 @@ export default function MainScreen() {
       ]);
       setGuesses((actualGuesses) => actualGuesses - 1);
     }
-    console.log("letter", letter);
-    console.log("wrongLetters", wrongLetters);
   };
   const retry = () => {
     setScore(0);
-    setGuesses(3);
+    setGuesses(5);
     setGameStage(stages[0].name);
   };
   const clearLettersStates = () => {
@@ -89,6 +84,7 @@ export default function MainScreen() {
 
   const finishGame = () => {
     setGameStage(stages[0].name);
+    setScore(0)
   };
 
   useEffect(() => {
@@ -102,8 +98,6 @@ export default function MainScreen() {
   useEffect(() => {
     const uniqueLetters = [...new Set(letters)];
 
-    console.log(uniqueLetters);
-    console.log(guessedLetters);
     if (
       guessedLetters.length === uniqueLetters.length &&
       gameStage === "game"
