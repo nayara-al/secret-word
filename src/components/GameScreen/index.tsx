@@ -51,7 +51,9 @@ export default function GameScreen({
       <p>Você ainda tem {guesses} tentativas(s).</p>
       <div className="m-8 p-8 border-solid border-[12px] items-center justify-center border-yellow-500 flex flex-wrap text-black">
         {letters.map((letter, i) =>
-          guessedLetters.includes(letter) ? (
+          guessedLetters.includes(letter) ||
+          letter === " " ||
+          letter === "-" ? (
             <span
               key={i}
               className="flex items-center justify-center h-[60px] w-[60px] text-5xl border solid border-1 border-gray-900 uppercase bg-green-200 text-black font-bold z-10"
@@ -68,7 +70,10 @@ export default function GameScreen({
       </div>
       <div>
         <p></p>
-        <form className="flex items-center justify-center gap-4" onSubmit={handleSubmit}>
+        <form
+          className="flex items-center justify-center gap-4 max-sm:flex-wrap max-sm:w-full"
+          onSubmit={handleSubmit}
+        >
           <input
             type="text"
             className="text-black uppercase h-[50px] w-[50px] text-[20px] text-center mr-2"
@@ -77,6 +82,8 @@ export default function GameScreen({
             required
             value={letter}
             ref={letterInputRef}
+            id="letterInput"
+            name="letterInput"
           />
           <Button buttonType="secondary">Jogar!</Button>
         </form>
@@ -90,4 +97,3 @@ export default function GameScreen({
     </div>
   );
 }
-
