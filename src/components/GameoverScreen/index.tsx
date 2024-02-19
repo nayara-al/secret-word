@@ -7,7 +7,7 @@ interface GameoverScreenProps {
 
 export default function GameoverScreen({ retry, score }: GameoverScreenProps) {
   return (
-    <div className="h-full flex flex-col py-4 gap-20">
+    <div className="h-full flex flex-col py-4 gap-20 text-white">
       <h2 className="text-4xl">Infelizmente você perdeu.</h2>
       <div className="bg-white text-gray-900 p-4 rounded-lg">
         Ao total você conseguiu:

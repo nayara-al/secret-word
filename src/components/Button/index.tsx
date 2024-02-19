@@ -28,7 +28,7 @@ export default function Button({
   return (
     <button
       {...rest}
-      className={` border border-solid rounded-full font-semibold ${buttonColor} ${paddingX} ${paddingY} ${textSize}`}
+      className={`text-white border border-solid rounded-full font-semibold ${buttonColor} ${paddingX} ${paddingY} ${textSize}`}
     >
       {children}
     </button>
