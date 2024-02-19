@@ -15,12 +15,12 @@ export default function Button({
   let buttonColor;
 
   if (buttonType === "secondary") {
-    paddingX = "px-8 max-md:px-3";
-    paddingY = "py-4 max-md:py-2";
+    paddingX = "px-8 max-md:px-5";
+    paddingY = "py-4 max-md:py-3";
     textSize = "text-base";
     buttonColor = "bg-rose-950"
   } else if (buttonType === "primary") {
-    paddingX = "px-12 max-md:px-4";
+    paddingX = "px-12 max-md:px-6";
     paddingY = "py-6 max-md:py-4";
     textSize = "text-2xl max-md:text-base";
     buttonColor = "bg-slate-500"
