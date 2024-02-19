@@ -40,7 +40,6 @@ export default function MainScreen() {
   const startGame = useCallback(() => {
     setGameStage("game");
     const { category, word } = pickWordAndCategory();
-    console.log(word);
 
     let wordLetters = word.split("");
 
@@ -106,8 +105,6 @@ export default function MainScreen() {
   }, [guesses]);
 
   useEffect(() => {
-    console.log('guessedLetters', guessedLetters)
-    console.log('Letters', letters)
     const uniqueLetters = [...new Set(letters)];
 
     if (
