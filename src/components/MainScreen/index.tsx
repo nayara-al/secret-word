@@ -40,8 +40,18 @@ export default function MainScreen() {
   const startGame = useCallback(() => {
     setGameStage("game");
     const { category, word } = pickWordAndCategory();
+    console.log(word);
 
     let wordLetters = word.split("");
+
+    const automaticallyGuessedLetters = wordLetters
+      .filter((l) => l === " " || l === "-")
+      .map((l) => l.toLowerCase());
+
+    setGuessedLetters((actualGuessedLetters) => [
+      ...actualGuessedLetters,
+      ...automaticallyGuessedLetters,
+    ]);
 
     wordLetters = wordLetters.map((l: string) => l.toLowerCase());
 
@@ -84,7 +94,7 @@ export default function MainScreen() {
 
   const finishGame = () => {
     setGameStage(stages[0].name);
-    setScore(0)
+    setScore(0);
   };
 
   useEffect(() => {
@@ -96,6 +106,8 @@ export default function MainScreen() {
   }, [guesses]);
 
   useEffect(() => {
+    console.log('guessedLetters', guessedLetters)
+    console.log('Letters', letters)
     const uniqueLetters = [...new Set(letters)];
 
     if (
