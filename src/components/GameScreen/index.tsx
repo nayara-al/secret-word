@@ -49,7 +49,7 @@ export default function GameScreen({
         <span className="text-yellow-500 font-semibold">{pickedCategory}</span>
       </h3>
       <p>Você ainda tem {guesses} tentativas(s).</p>
-      <div className="m-8 p-8 border-solid border-[12px] items-center justify-center border-yellow-500 flex max-md:flex-wrap">
+      <div className="m-8 p-8 border-solid border-[12px] items-center justify-center border-yellow-500 flex flex-wrap">
         {letters.map((letter, i) =>
           guessedLetters.includes(letter) ? (
             <span
